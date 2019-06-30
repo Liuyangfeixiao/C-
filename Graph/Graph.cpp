@@ -3,3 +3,8 @@
 //
 
 #include "Graph.h"
+
+void Graph::CreateGraph(int n) {
+
+
+}
