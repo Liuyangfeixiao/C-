@@ -33,6 +33,6 @@ int main() {
     printLinbry(result);
     cout << "____________________________"<<endl;
     int Result = sra(num,enterNum);
-    cout << bitset<sizeof(int)*8>(Result);
+    cout << bitset<sizeof(int)*8>(Result)<<endl;
     return 0;
 }
