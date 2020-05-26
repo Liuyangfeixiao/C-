@@ -1,0 +1,2 @@
+C:\Users\HP\Desktop\workplace\OpenGL_test\x64\Debug\OpenGL_test.exe
+C:\Users\HP\Desktop\workplace\OpenGL_test\x64\Debug\OpenGL_test.pdb
