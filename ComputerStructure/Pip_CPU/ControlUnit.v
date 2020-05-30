@@ -13,7 +13,7 @@ module ControlUnit(
     output reg[1:0] PCSrc,
     output reg[1:0] RegDst,
     output reg[1:0] ALUSrc_A.
-    output reg[1:0] ALUSrc_B,
+    output reg ALUSrc_B,
     output reg[3:0] ALUOp,
     output reg[2:0] Load,
     output reg[1:0] Store,
@@ -114,12 +114,10 @@ always @(*) begin
     else
         ALUSrcA = 2'b00;
     //ALUSrcB
-    if(Opcode == 6'h00 || Opcode == 6'h04 || Opcode == 6'h05 ) //R-type, beq, bne
-        ALUSrcB = 2'b00;
-    else if(Opcode == 6'h01 || Opcode == 6'h06 || Opcode == 6'h07) //blez, bgez, bltz, bgtz
-        ALUSrcB = 2'b10;
+    if(Opcode == 6'h00 || Opcode == 6'h04 || Opcode == 6'h05) //R-type, beq, bne
+        ALUSrcB = 0;
     else
-        ALUSrcB = 2'b01;
+        ALUSrcB = 1; //offset
     
     //Load
     case (Opcode)

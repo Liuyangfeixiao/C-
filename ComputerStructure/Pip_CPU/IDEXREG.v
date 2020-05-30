@@ -27,7 +27,7 @@ module IDEXREG(
     //input EXsel_in,
     input[1:0] RegDst_in,
     input[1:0] ALUSrcA_in,
-    input[1:0] ALUSrcB_in,
+    input ALUSrcB_in,
     input[3:0] ALUOp_in,
     input MemRead_in,
     input MemWrite_in,
@@ -38,7 +38,7 @@ module IDEXREG(
     //output reg EXsel_out,
     output reg[1:0] RegDst_out,
     output reg[1:0] ALUSrcA_out,
-    output reg[1:0] ALUSrcB_out,
+    output reg ALUSrcB_out,
     output reg[3:0] ALUOp_out,
     output reg MemRead_IDEX,
     output reg MemWrite_IDEX,
@@ -59,7 +59,7 @@ begin
     Rd_IDEX <= 5'b0;
     RegDst_out <= 2'b00;
     ALUSrcA_out <= 2'b00;
-    ALUSrcB_out <= 2'b00;
+    ALUSrcB_out <= 0;
     ALUOp_out <= 4'b0;
     MemRead_IDEX <= 0;
     MemWrite_IDEX <= 0;
@@ -81,7 +81,7 @@ always @(posedge clk) begin
     Rd_IDEX <= 5'b0;
     RegDst_out <= 2'b00;
     ALUSrcA_out <= 2'b00;
-    ALUSrcB_out <= 2'b00;
+    ALUSrcB_out <= 0;
     ALUOp_out <= 4'b0;
     MemRead_IDEX <= 0;
     MemWrite_IDEX <= 0;
@@ -104,7 +104,7 @@ always @(posedge clk) begin
             Rd_IDEX <= 5'b0;
             RegDst_out <= 2'b00;
             ALUSrcA_out <= 2'b00;
-            ALUSrcB_out <= 2'b00;
+            ALUSrcB_out <= 0;
             ALUOp_out <= 4'b0;
             MemRead_IDEX <= 0;
             MemWrite_IDEX <= 0;
