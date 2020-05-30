@@ -9,6 +9,7 @@ module ControlUnit(
     output reg memRd,
     output reg memWt,
     output reg RegWre,
+    output reg Exsel,
     output reg[1:0] PCSrc,
     output reg[1:0] RegDst,
     output reg[1:0] ALUSrc_A.
@@ -139,6 +140,12 @@ always @(*) begin
     endcase
 
     end
+
+    //Extsel
+    if(Opcode == 6'b001100 || Opcode == 6'b001101 || Opcode == 6'b001110)//ANDI, XORI, ORI
+        ExtSel = 0;
+    else
+        ExtSel = 1;
 end
 
 endmodule // ControlUnit
