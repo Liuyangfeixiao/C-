@@ -1,4 +1,4 @@
-module InsMem(input[31:0] PC, output[31:0] instruction);
+module InsMem(input[31:0] PC, output reg[31:0] instruction);
 reg[31:0] mem[255:0];  
     initial 
     begin

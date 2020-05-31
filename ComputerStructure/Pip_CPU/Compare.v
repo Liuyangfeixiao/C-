@@ -1,7 +1,7 @@
 module Compare(
     input signed [31:0] A,
     input signed [31:0] B,
-    output reg [1:0] res;
+    output reg [1:0] res
 );
 always @(*) begin
     if (A < B) begin

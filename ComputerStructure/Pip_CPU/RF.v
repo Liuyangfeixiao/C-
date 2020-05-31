@@ -3,7 +3,7 @@ module RF(   input         clk,
                input         RFWr, 
                input  [4:0]  A1, A2, A3, 
                input  [31:0] WD, 
-               output [31:0] RD1, RD2,
+               output [31:0] RD1, RD2
                //input  [4:0]  reg_sel,
                //output [31:0] reg_data
                );

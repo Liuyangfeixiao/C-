@@ -9,10 +9,10 @@ module ControlUnit(
     output reg memRd,
     output reg memWt,
     output reg RegWre,
-    output reg Exsel,
+    output reg Extsel,
     output reg[1:0] PCSrc,
     output reg[1:0] RegDst,
-    output reg[1:0] ALUSrc_A.
+    output reg[1:0] ALUSrc_A,
     output reg ALUSrc_B,
     output reg[3:0] ALUOp,
     output reg[2:0] Load,
@@ -105,19 +105,19 @@ always @(*) begin
     else 
         RegDst = 2'b01;   //I-type
     //RegWrite
-    RegWre = ((Opcode == 6'b000000 && func == 6'b001000) || Opcode == 6'b101000 || Opcode == 6'b101001 || Opcode == 6'b101011 || Opcode = 6'b000010|| Opcode == 6'b000100||Opcode == 6'b000101||Opcode == 6'b000110||Opcode == 6'b000111) ? 0 : 1;
+    RegWre = ((Opcode == 6'b000000 && func == 6'b001000) || Opcode == 6'b101000 || Opcode == 6'b101001 || Opcode == 6'b101011 || Opcode == 6'b000010|| Opcode == 6'b000100||Opcode == 6'b000101||Opcode == 6'b000110||Opcode == 6'b000111) ? 0 : 1;
     //ALUSrcA
     if((Opcode == 6'h00 && (func == 6'b000000 || func == 6'b000011 || func == 6'b000010)))
-        ALUSrcA = 2'b01;
+        ALUSrc_A = 2'b01;
     else if(Opcode == 6'h0F)
-        ALUSrcA = 2'b10;
+        ALUSrc_A = 2'b10;
     else
-        ALUSrcA = 2'b00;
+        ALUSrc_A = 2'b00;
     //ALUSrcB
     if(Opcode == 6'h00 || Opcode == 6'h04 || Opcode == 6'h05) //R-type, beq, bne
-        ALUSrcB = 0;
+        ALUSrc_B = 0;
     else
-        ALUSrcB = 1; //offset
+        ALUSrc_B = 1; //offset
     
     //Load
     case (Opcode)

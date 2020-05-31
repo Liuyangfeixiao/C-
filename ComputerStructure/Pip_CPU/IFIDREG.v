@@ -5,8 +5,8 @@ module IFIDREG(
     input IF_Flush,
     input [31:0] Instruction_in,
     input [31:0] PCPlus4_in,
-    output[31:0] Instruction_out,
-    output[31:0] PCPlus4_out
+    output reg[31:0] Instruction_out,
+    output reg[31:0] PCPlus4_out
 );
 
 initial

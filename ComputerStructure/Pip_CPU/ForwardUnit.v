@@ -46,13 +46,13 @@ always @(*) begin
     
 
     //Bracnch Forward
-    if (RegWrite_EXMEM && (RdAddr_EXMEM != 0) && (RdAddr_EXMEM == RsAddr_IFID) && (Opcode = 6'h04 || Opcode == 6'h05)) begin
+    if (RegWrite_EXMEM && (RdAddr_EXMEM != 0) && (RdAddr_EXMEM == RsAddr_IFID) && (Opcode == 6'h04 || Opcode == 6'h05)) begin
         ForwardC = 1;
     end
-    if(RegWrite_EXMEM && (RdAddr_EXMEM != 0) && (RdAddr_EXMEM == RtAddr_IFID) && (Opcode = 6'h04 || Opcode == 6'h05)) 
+    if(RegWrite_EXMEM && (RdAddr_EXMEM != 0) && (RdAddr_EXMEM == RtAddr_IFID) && (Opcode == 6'h04 || Opcode == 6'h05)) 
         ForwardD = 1;
     
-    if (RegWrite_EXMEM && (RdAddr_EXMEM != 0) && (RdAddr_EXMEM == RsAddr_IFID) && (Opcode = 6'h01 || Opcode == 6'h06 || Opcode == 6'h07)) begin
+    if (RegWrite_EXMEM && (RdAddr_EXMEM != 0) && (RdAddr_EXMEM == RsAddr_IFID) && (Opcode == 6'h01 || Opcode == 6'h06 || Opcode == 6'h07)) begin
         ForwardE = 1;
     end
 
