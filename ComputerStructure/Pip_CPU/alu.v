@@ -1,13 +1,13 @@
 `include "ctrl_encode_def.v"
 
-module alu(A, B, ALUOp, C, Zero, Sign, clk);
+module alu(clk, A, B, ALUOp, C, Zero);
            
    input  signed [31:0] A, B;
    input         [3:0]  ALUOp;
    input clk;
    output signed [31:0] C;
    output Zero;
-   output Sign;
+   //output Sign;
    
    reg [31:0] C;
    integer    i;
