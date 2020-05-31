@@ -49,7 +49,7 @@ always @(*) begin
     if (RegWrite_EXMEM && (RdAddr_EXEMEM != 0) && (RdAddr_EXEMEM == RsAddr_IFID) && (Opcode = 6'h04 || Opcode == 6'h05)) begin
         ForwardC = 1;
     end
-    if(RegWrite_EXMEM && (RdAddr_EXEMEM != 0) && (RdAddr_EXEMEM == RtAddr_IFID) && (Opcode = 6'h04 || Opcode == 6'h05))
+    if(RegWrite_EXMEM && (RdAddr_EXEMEM != 0) && (RdAddr_EXEMEM == RtAddr_IFID) && (Opcode = 6'h04 || Opcode == 6'h05)) 
         ForwardD = 1;
     
     if (RegWrite_EXMEM && (RdAddr_EXEMEM != 0) && (RdAddr_EXEMEM == RsAddr_IFID) && (Opcode = 6'h01 || Opcode == 6'h06 || Opcode == 6'h07)) begin
