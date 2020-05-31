@@ -144,6 +144,17 @@ always @(*) begin
         ExtSel = 0;
     else
         ExtSel = 1;
+    //MEMtoREG
+
+    if (Opcode == 6'h03 || (Opcode == 6'h00 && func == 6'd9)) begin
+        MemtoReg = 2'b00;
+    end
+    else if(Opcode == 6'h20 || Opcode == 6'h21 || Opcode == 6'h23 || Opcode == 6'h24 || Opcode == 6'h25)
+    begin
+        MemtoReg = 2'b10;
+    end
+    else
+        MemtoReg = 2'b01;
 end
 
 endmodule // ControlUnit
