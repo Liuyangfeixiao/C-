@@ -3,10 +3,11 @@ module MEMWBREG(
     input rst,
     input MEM_Stall,
     input MEM_Flush,
-
+    input[31:0] PCPlus_in,
     input[31:0] ALUResult_in,
     input[31:0] MemData_in,
     input[4:0] RegDstAdddr_in,
+    output reg[31:0] PCPlus_MEMWB,
     output reg[31:0] ALUResult_o,
     output reg[31:0] MemData_o,
     output reg[4:0] RegDstAdddr_MEMWB,

@@ -4,9 +4,11 @@ module EXMEMREG(
     input EX_Stall,
     input EX_Flush,
     //From EX
+    input[31:0] PCPlus_in,
     input[31:0] ALUResult_in,
     input[31:0] MemWriteData_in,
     input[4:0] RegDstAddr_in,
+    output reg[31:0] PCPlus_EXMEM,
     output reg[31:0] ALUResult_o,
     output reg[31:0] MemWriteData_o,
     output reg[4:0] RegDstAddr_EXMEM,
