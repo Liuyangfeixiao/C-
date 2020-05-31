@@ -6,14 +6,14 @@ module HazardUnit(
     input[4:0] RtAddr_EXMEM,
     input MemRd_EXMEM,
     input MemRd_IDEX,
-    output reg IFID_Flush,
+    //output reg IFID_Flush,
     output reg IFID_Stall,
     output reg PCWre,
     output reg IDEX_Flush); //maybe there is PCSrc, NextType to hazard the Branch 
 initial
 begin
     PCWre <= 1;
-    IFID_Flush <= 0;
+    //IFID_Flush <= 0;
     IFID_Stall <= 0;
     IDEX_Flush <= 0;
 
