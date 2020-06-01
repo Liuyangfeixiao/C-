@@ -6,6 +6,7 @@ module ControlUnit(
     input[4:0] Rt, //Instr[20:16]
     input[1:0] RscmpRt,
     input[1:0] RscmpZ,
+    input Zero,
     output reg memRd,
     output reg memWt,
     output reg RegWre,
