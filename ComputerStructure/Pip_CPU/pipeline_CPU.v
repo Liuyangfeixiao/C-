@@ -40,7 +40,7 @@ wire [31:0] ShamtExtended_IDEX;
 wire [4:0] RsAddr_IDEX;
 wire [4:0] RtAddr_IDEX;
 wire [4:0] RdAddr_IDEX;
-wire [1:0] RegDst_IDEX;
+wire [4:0] RegWriteAddr_IDEX;
 wire [1:0] ALUSrcA_IDEX;
 wire ALUSrcB_IDEX;
 wire [3:0] ALUOp_IDEX;
@@ -60,7 +60,7 @@ wire [1:0] Store_EXMEM;
 wire [1:0] MemtoReg_EXMEM;
 wire RegWre_EXMEM;
 wire EX_Stall;
-wire EX_lush;
+wire EX_Flush;
 wire [1:0] ForwardA, ForwardB;
 wire ForwardC, ForwardD, ForwardE;
 wire [4:0] RegWriteAddr;
@@ -110,6 +110,11 @@ ControlUnit control(.clk(clk), .rst(rst), .Opcode(Op), .func(Func), .Rt(Rt), .Rs
 EXT16 EXT(Imm16, Exsel, ImmExtened);
 
 RF regfile(clk, rst, RegWre_MEMWB, Rs, Rt, RegWriteAddr_WB, RegWriteData_WB, RsData, RtData);
+wire [31:0] RtAddr_ex, RdAddr_ex, RegWriteAddr_ex;
+assign RtAddr_ex = {27'b0, Rt[4:0]};
+assign RdAddr_ex = {27'b0, Rd[4:0]};
+mux4 RegWriteSel(32'h1F, RtAddr_ex, RdAddr_ex, 0, RegDst, RegWriteAddr_ex);
+assign RegWriteAddr = RegWriteAddr_ex[4:0];
 
 assign PCBranch_ID = PCPlus_IFID + {{14{Imm16[15]}}, Imm16[15:0], 2'b00};
 assign PCJump_ID = {PCPlus_IFID[31:28], JumpImm[25:0], 2'b00};
@@ -129,15 +134,11 @@ Compare cmp2(RsData_final2, 0, RscmpZ);
 HazardUnit Hazard(Op, Rs, Rt, RtAddr_IDEX, RegWriteAddr_EXMEM, MemRd_EXMEM, MemRd_IDEX, IF_Stall, PCWre, ID_Flush);
 assign ID_Stall = 0;
 IDEXREG IDEX(clk, rst, ID_Stall, ID_Flush, PCPlus_IFID, RsData, RtData, ImmExtened, ShamtExtended, Rs, Rt, Rd, PCPlus_IDEX, RsData_IDEX, RtData_IDEX, 
-ImmExtened_IDEX, ShamtExtended_IDEX, RsAddr_IDEX, RtAddr_IDEX, RdAddr_IDEX, RegDst, ALUSrc_A, ALUSrc_B, ALUOp, memRd, memWt, Load, Store, MemtoReg, RegWre,
-RegDst_IDEX, ALUSrcA_IDEX, ALUSrcB_IDEX, ALUOp_IDEX, MemRd_IDEX, MemWt_IDEX, Load_IDEX, Store_IDEX, MemtoReg_IDEX, RegWre_IDEX);
+ImmExtened_IDEX, ShamtExtended_IDEX, RsAddr_IDEX, RtAddr_IDEX, RdAddr_IDEX, RegWriteAddr, ALUSrc_A, ALUSrc_B, ALUOp, memRd, memWt, Load, Store, MemtoReg, RegWre,
+RegWriteAddr_IDEX, ALUSrcA_IDEX, ALUSrcB_IDEX, ALUOp_IDEX, MemRd_IDEX, MemWt_IDEX, Load_IDEX, Store_IDEX, MemtoReg_IDEX, RegWre_IDEX);
 
 //------------------------------------------EX-----------------------------------------------
-wire [31:0] RtAddr_IDEX_ex, RdAddr_IDEX_ex, RegWriteAddr_ex;
-assign RtAddr_IDEX_ex = {27'b0, RtAddr_IDEX[4:0]};
-assign RdAddr_IDEX_ex = {27'b0, RdAddr_IDEX[4:0]};
-mux4 RegWriteSel(32'h1F, RtAddr_IDEX_ex, RdAddr_IDEX_ex, 0, RegDst_IDEX, RegWriteAddr_ex);
-assign RegWriteAddr = RegWriteAddr_ex[4:0];
+
 mux4 Forward_A(.d0(RsData_IDEX), .d1(ALUResult_EXMEM), .d2(RegWriteData_WB), .s(ForwardA), .y(tmp_ForwardA));
 mux4 Forward_B(.d0(RtData_IDEX), .d1(ALUResult_EXMEM), .d2(RegWriteData_WB), .s(ForwardB), .y(tmp_ForwardB));
 
@@ -152,7 +153,7 @@ ForwardA, ForwardB, ForwardC, ForwardD, ForwardE);
 //------------------------------------EXMEM----------------------------------------------------
 assign EX_Stall = 1'b0;
 assign EX_Flush = 1'b0;
-EXMEMREG EXMEM(clk, rst, EX_Stall, EX_Flush, PCPlus_IDEX, ALUResult, tmp_ForwardB, RegWriteAddr, PCPlus_EXMEM, ALUResult_EXMEM, MemWriteData, RegWriteAddr_EXMEM,
+EXMEMREG EXMEM(clk, rst, EX_Stall, EX_Flush, PCPlus_IDEX, ALUResult, tmp_ForwardB, RegWriteAddr_IDEX, PCPlus_EXMEM, ALUResult_EXMEM, MemWriteData, RegWriteAddr_EXMEM,
 MemRd_IDEX, MemWt_IDEX, Load_IDEX, Store_IDEX, MemtoReg_IDEX, RegWre_IDEX, MemRd_EXMEM, MemWt_EXMEM, Load_EXMEM, Store_EXMEM, MemtoReg_EXMEM, RegWre_EXMEM);
 
 //-----------------------------------MEM-----------------------------------------------------

@@ -10,7 +10,7 @@ module ControlUnit(
     output reg memRd,
     output reg memWt,
     output reg RegWre,
-    output reg Extsel,
+    output reg ExtSel,
     output reg[1:0] PCSrc,
     output reg[1:0] RegDst,
     output reg[1:0] ALUSrc_A,
@@ -145,6 +145,21 @@ always @(*) begin
         ExtSel = 0;
     else
         ExtSel = 1;
+    
+    //memRd
+    if(Opcode == 6'h20 || Opcode == 6'h21 || Opcode == 6'h23 || Opcode == 6'h24 || Opcode == 6'h25)
+        memRd = 1;
+    else
+        memRd = 0;
+    
+    //memWt
+    if(Opcode == 6'h28 || Opcode == 6'h29 || Opcode == 6'h2B)
+        memWt = 1;
+    else
+        memWt = 0;
+
+
+
     //MEMtoREG
 
     if (Opcode == 6'h03 || (Opcode == 6'h00 && func == 6'd9)) begin

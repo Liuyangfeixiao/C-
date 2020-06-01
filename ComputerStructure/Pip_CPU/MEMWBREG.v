@@ -20,6 +20,7 @@ module MEMWBREG(
 
 initial
 begin
+    PCPlus_MEMWB <= 0;
     ALUResult_o <= 0;
     MemData_o <= 0;
     RegDstAdddr_MEMWB <= 0;
@@ -30,6 +31,7 @@ end
 always @(posedge clk) begin
     if(rst)
     begin
+        PCPlus_MEMWB <= 0;
         ALUResult_o <= 0;
         MemData_o <= 0;
         RegDstAdddr_MEMWB <= 0;
@@ -40,6 +42,7 @@ always @(posedge clk) begin
     begin
         if(MEM_Flush)
         begin
+            PCPlus_MEMWB <= 0;
             ALUResult_o <= 0;
             MemData_o <= 0;
             RegDstAdddr_MEMWB <= 0;
@@ -49,6 +52,7 @@ always @(posedge clk) begin
 
         else
         begin
+            PCPlus_MEMWB <= PCPlus_in;
             ALUResult_o <= ALUResult_in;
             MemData_o <= MemData_in;
             RegDstAdddr_MEMWB <= RegDstAdddr_in;

@@ -30,6 +30,7 @@ module EXMEMREG(
 
 initial
 begin
+    PCPlus_EXMEM <= 0;
     ALUResult_o <= 0;
     MemWriteData_o <= 0;
     RegDstAddr_EXMEM <= 0;
@@ -44,6 +45,7 @@ end
 always @(posedge clk) begin
     if(rst)
     begin
+	PCPlus_EXMEM <= 0;
         ALUResult_o <= 0;
         MemWriteData_o <= 0;
         RegDstAddr_EXMEM <= 0;
@@ -58,6 +60,7 @@ always @(posedge clk) begin
     begin
         if(EX_Flush)
         begin
+	    PCPlus_EXMEM <= 0;
             ALUResult_o <= 0;
             MemWriteData_o <= 0;
             RegDstAddr_EXMEM <= 0;
@@ -71,6 +74,7 @@ always @(posedge clk) begin
 
         else
         begin
+	    PCPlus_EXMEM <= PCPlus_in;
             ALUResult_o <= ALUResult_in;
             MemWriteData_o <= MemWriteData_in;
             RegDstAddr_EXMEM <= RegDstAddr_in;

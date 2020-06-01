@@ -28,7 +28,7 @@ always @(*) begin
         $display("A Load hazard occur");
     end
 
-    if (MemRd_EXMEM && (RtAddr_EXMEM == RsAddr_IFID || RtAddr_EXMEM == RtAddr_IFID) && (Opcode_IFID == 6'h04 || Opcode_IFID == 6'h05 )) begin
+   else if (MemRd_EXMEM && (RtAddr_EXMEM == RsAddr_IFID || RtAddr_EXMEM == RtAddr_IFID) && (Opcode_IFID == 6'h04 || Opcode_IFID == 6'h05 )) begin
         IFID_Stall = 1;
         //IFID_Flush = 0;
         IDEX_Flush = 1;
@@ -36,13 +36,21 @@ always @(*) begin
         $display("A hazard for beq or bnq occur");
     end
 
-    if (MemRd_EXMEM && (RtAddr_EXMEM == RsAddr_IFID) && (Opcode_IFID == 6'h01 || Opcode_IFID == 6'h06 || Opcode_IFID == 6'h07)) begin
+   else if (MemRd_EXMEM && (RtAddr_EXMEM == RsAddr_IFID) && (Opcode_IFID == 6'h01 || Opcode_IFID == 6'h06 || Opcode_IFID == 6'h07)) begin
         IFID_Stall = 1;
         //IFID_Flush = 0;
         IDEX_Flush = 1;
         PCWre = 0;
         $display("A hazard for blez, bltz, bgez, bgtz occur");
     end
+    
+    else begin
+    PCWre = 1;
+    //IFID_Flush <= 0;
+    IFID_Stall = 0;
+    IDEX_Flush = 0;
+    end
+    
         
 end
 

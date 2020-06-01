@@ -25,7 +25,7 @@ module IDEXREG(
 
     //control
     //input EXsel_in,
-    input[1:0] RegDst_in,
+    input[4:0] RegWriteAddr_in,
     input[1:0] ALUSrcA_in,
     input ALUSrcB_in,
     input[3:0] ALUOp_in,
@@ -36,7 +36,7 @@ module IDEXREG(
     input[1:0] MemtoReg_in,
     input RegWrite_in,
     //output reg EXsel_out,
-    output reg[1:0] RegDst_out,
+    output reg[4:0] RegWriteAddr_out,
     output reg[1:0] ALUSrcA_out,
     output reg ALUSrcB_out,
     output reg[3:0] ALUOp_out,
@@ -57,7 +57,7 @@ begin
     Rs_IDEX <= 5'b0;
     Rt_IDEX <= 5'b0;
     Rd_IDEX <= 5'b0;
-    RegDst_out <= 2'b00;
+    RegWriteAddr_out <= 5'b0;
     ALUSrcA_out <= 2'b00;
     ALUSrcB_out <= 0;
     ALUOp_out <= 4'b0;
@@ -79,7 +79,7 @@ always @(posedge clk) begin
     Rs_IDEX <= 5'b0;
     Rt_IDEX <= 5'b0;
     Rd_IDEX <= 5'b0;
-    RegDst_out <= 2'b00;
+    RegWriteAddr_out <= 5'b0;
     ALUSrcA_out <= 2'b00;
     ALUSrcB_out <= 0;
     ALUOp_out <= 4'b0;
@@ -102,7 +102,7 @@ always @(posedge clk) begin
             Rs_IDEX <= 5'b0;
             Rt_IDEX <= 5'b0;
             Rd_IDEX <= 5'b0;
-            RegDst_out <= 2'b00;
+            RegWriteAddr_out <= 5'b0;
             ALUSrcA_out <= 2'b00;
             ALUSrcB_out <= 0;
             ALUOp_out <= 4'b0;
@@ -123,7 +123,7 @@ always @(posedge clk) begin
             Rs_IDEX <= Rs_in;
             Rt_IDEX <= Rt_in;
             Rd_IDEX <= Rd_in;
-            RegDst_out <= RegDst_in;
+            RegWriteAddr_out <= RegWriteAddr_in;
             ALUSrcA_out <= ALUSrcA_in;
             ALUSrcB_out <= ALUSrcB_in;
             ALUOp_out <= ALUOp_in;
