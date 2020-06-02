@@ -131,7 +131,7 @@ Compare cmp1(RsData_final1, RtData_final, RscmpRt);
 Compare cmp2(RsData_final2, 0, RscmpZ);
 //--------------------------------------IDEX------------------------------------------------
 
-HazardUnit Hazard(Op, Rs, Rt, RtAddr_IDEX, RegWriteAddr_EXMEM, MemRd_EXMEM, MemRd_IDEX, IF_Stall, PCWre, ID_Flush);
+HazardUnit Hazard(Op, Func, Rs, Rt, RtAddr_IDEX, RegWriteAddr_IDEX, RegWriteAddr_EXMEM, RegWre_IDEX, RegWre_EXMEM, MemRd_EXMEM, MemRd_IDEX, IF_Stall, PCWre, ID_Flush);
 assign ID_Stall = 0;
 IDEXREG IDEX(clk, rst, ID_Stall, ID_Flush, PCPlus_IFID, RsData, RtData, ImmExtened, ShamtExtended, Rs, Rt, Rd, PCPlus_IDEX, RsData_IDEX, RtData_IDEX, 
 ImmExtened_IDEX, ShamtExtended_IDEX, RsAddr_IDEX, RtAddr_IDEX, RdAddr_IDEX, RegWriteAddr, ALUSrc_A, ALUSrc_B, ALUOp, memRd, memWt, Load, Store, MemtoReg, RegWre,
