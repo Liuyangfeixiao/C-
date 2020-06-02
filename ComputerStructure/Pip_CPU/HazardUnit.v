@@ -1,9 +1,13 @@
 module HazardUnit(
     input[5:0] Opcode_IFID,
+    input[5:0] Func_IFID,
     input[4:0] RsAddr_IFID,
     input[4:0] RtAddr_IFID,
     input[4:0] RtAddr_IDEX,
+    input[4:0] RegWriteAddr_IDEX,
     input[4:0] RtAddr_EXMEM,
+    input RegWrite_IDEX,
+    input RegWrite_EXMEM,
     input MemRd_EXMEM,
     input MemRd_IDEX,
     //output reg IFID_Flush,
@@ -43,7 +47,20 @@ always @(*) begin
         PCWre = 0;
         $display("A hazard for blez, bltz, bgez, bgtz occur");
     end
-    
+    else if(RegWrite_IDEX && (RegWriteAddr_IDEX == RsAddr_IFID) && (Opcode_IFID == 6'h00 && (Func_IFID == 6'd8 || Func_IFID == 6'd9))) begin
+ 	IFID_Stall = 1;
+        //IFID_Flush = 0;
+        IDEX_Flush = 1;
+        PCWre = 0;
+        $display("A hazard for jr, jalr occur");   
+    end
+    else if(RegWrite_EXMEM && (RtAddr_EXMEM == RsAddr_IFID) && (Opcode_IFID == 6'h00 && (Func_IFID == 6'd8 || Func_IFID == 6'd9))) begin
+     	IFID_Stall = 1;
+        //IFID_Flush = 0;
+        IDEX_Flush = 1;
+        PCWre = 0;
+        $display("A hazard for jr, jalr occur");
+    end
     else begin
     PCWre = 1;
     //IFID_Flush <= 0;
