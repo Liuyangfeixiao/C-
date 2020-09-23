@@ -1,0 +1,8 @@
+INTSTYLE=ise
+INFILE=C:\Users\HP\Desktop\workplace\Lab9\Top.ncd
+OUTFILE=C:\Users\HP\Desktop\workplace\Lab9\Top.bit
+FAMILY=Kintex7
+PART=xc7k160t-2lffg676
+WORKINGDIR=C:\Users\HP\Desktop\workplace\Lab9
+LICENSE=WebPack
+USER_INFO=__0_0_0
