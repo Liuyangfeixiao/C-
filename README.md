@@ -1,2 +1,0 @@
-# MIPS_CPU
-存放MIPS_CPU代码

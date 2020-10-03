@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>JavaScript过河游戏</title>
+  <style type="text/css">
+    #content{width:800px;height:600px;border:1px #333333 solid;overflow:hidden;}
+
+    #A{width:120px;height:600px;float:left;background:#996633;}
+    #B{width:560px;height:600px;float:left;background:#0099FF;}
+    #C{width:120px;height:600px;float:right;background:#996633;}
+
+    #river{width:560px;height:450px;}
+    #operator{width:560px;height:150px;background:#99CCFF;overflow:hidden;}
+    #people{width:100px;height:20px;border:2px #000000 solid;margin:10px auto;text-align:center;cursor:pointer;padding:10px 0px;}
+    #ship{width:200px;height:20px;border:1px #CC3300 solid;background:#663300;position:relative;top:150px;left:-170px;
+      text-align:center;padding:10px 0px;cursor:pointer;}
+
+    #btns{width:560px;height:40px;margin-top:10px;}
+
+    #btn{width:60px;height:20px;border:1px #000000 solid;background:#ffff14;text-align:center;padding:10px 0px;cursor:pointer;float:left;margin-left:170px;display:inline;}
+    #new{width:60px;height:20px;border:1px #000000 solid;background:#FFFFCC;text-align:center;padding:10px 0px;cursor:pointer;float:left;margin-left:10px;display:inline;}
+    #auto{width:60px;height:20px;border:1px #000000 solid;background:#43CCCC;text-align:center;padding:10px 0px;cursor:pointer;float:left;margin-left:10px;display:inline;}
+
+    #rule{width:560px;height:100px;margin-top:10px;font-family:宋体;font-size:12px;color:#666666;line-height:16px;text-align:center;}
+  </style>
+  <script src="js/main.js" async>
+  </script>
+</head>
+
+<body>
+<br></br>
+<center>
+  <input type="text" name="texta" id="texta" value="" />
+  <input type="button" name="btn1" id="btn1" value="生成传教士和野人" />
+  <input type="text" name="textb" id="textb" value="" />
+  <input type="button" name="btn1" id="btn1" value="生成船" />
+
+  <br></br>
+  <div id="content">
+    <div id="A">
+      <div id="people" name="people">妈妈</div>
+      <div id="people" name="people">女儿1</div>
+      <div id="people" name="people">女儿2</div>
+      <div id="people" name="people">爸爸</div>
+      <div id="people" name="people">儿子1</div>
+      <div id="people" name="people">儿子2</div>
+      <div id="people" name="people">警察</div>
+      <div id="people" name="people">土匪</div>
+    </div>
+    <div id="B">
+      <div id="river">
+        <div id="ship" name="ship"></div>
+        <div id="ship" name="ship"></div>
+      </div>
+      <div id="operator">
+        <div id="btns">
+          <div id="btn">移动</div>
+          <div id="new">重玩</div>
+          <div id="auto">自动</div>
+        </div>
+        <div id="rule">
+          游戏规则：<br />
+          1.无论大人、小孩，每次最多只能承载两人。2.只有爸爸、妈妈、警察可以驾船。<br />
+          3.妈妈看到爸爸离开儿子打儿子。4.爸爸看到妈妈离开女儿打女儿。<br />
+          5.警察离开土匪会伤害家人。6.先选择人物，然后点击"移动"按钮。<br />
+          7.移动过程中若出现提示，说明违反上述规则。
+        </div>
+      </div>
+    </div>
+    <div id="C">
+      <div id="people" name="people">妈妈</div>
+      <div id="people" name="people">女儿1</div>
+      <div id="people" name="people">女儿2</div>
+      <div id="people" name="people">爸爸</div>
+      <div id="people" name="people">儿子1</div>
+      <div id="people" name="people">儿子2</div>
+      <div id="people" name="people">警察</div>
+      <div id="people" name="people">土匪</div>
+
+    </div>
+  </div>
+</center>
+</body>
+</html>
