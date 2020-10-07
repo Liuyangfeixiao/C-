@@ -1,3 +1,0 @@
-D:/CLion 2018.2.6/CLion 2019.1.2/project/List2/cmake-build-debug/CMakeFiles/List2.dir
-D:/CLion 2018.2.6/CLion 2019.1.2/project/List2/cmake-build-debug/CMakeFiles/edit_cache.dir
-D:/CLion 2018.2.6/CLion 2019.1.2/project/List2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
