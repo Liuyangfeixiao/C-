@@ -35,6 +35,11 @@ int lengthOfLIS(vector<int>& nums) {
 int lengthOf(vector<int>& nums) {
     int len = 1;
     int n = nums.size();
+    if (n == 0)
+    {
+        return 0;
+    }
+    
     vector<int> d(n+1, 0);
     d[len] = nums[0];
     /*贪心算法*/
@@ -46,7 +51,7 @@ int lengthOf(vector<int>& nums) {
         }
         else
         {
-            int l = 1, r = len, pos = 0;
+            int l = 1, r = len, pos = 0; // 如果没找到，则要更新 d[1], 所以 pos 要置0
             /*二分找到第一个小于 nums[i] 的值*/
             while(l <= r) {
                 int mid = (l+r) >> 1;
