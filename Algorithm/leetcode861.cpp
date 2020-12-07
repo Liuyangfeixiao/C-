@@ -41,5 +41,4 @@ int matrixScore(vector<vector<int>>& A) {
         }
     }
     return ans;
-
 }
