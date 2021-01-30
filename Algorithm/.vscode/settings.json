@@ -1,6 +1,7 @@
 {
     "files.associations": {
         "*.wxml": "html",
-        "xstring": "cpp"
+        "xstring": "cpp",
+        "vector": "cpp"
     }
 }
