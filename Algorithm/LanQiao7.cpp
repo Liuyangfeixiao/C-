@@ -1,4 +1,4 @@
-// 趣味算式
+// 国王的烦恼
 
 #include <iostream>
 #include <algorithm>
