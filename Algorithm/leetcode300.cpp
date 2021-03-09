@@ -52,20 +52,20 @@ int lengthOf(vector<int>& nums) {
         else
         {
             int l = 1, r = len, pos = 0; // 如果没找到，则要更新 d[1], 所以 pos 要置0
-            /*二分找到第一个小于 nums[i] 的值*/
-            while(l <= r) {
+            /*二分找到第一个大于 nums[i] 的值*/
+            while(l < r) {
                 int mid = (l+r) >> 1;
                 if (d[mid] < nums[i]) {
-                    pos = mid;
+                    // pos = mid;
                     l = mid + 1;
                 }
                 else
                 {
-                    r = mid - 1;
+                    r = mid;
                 }
                 
             }
-            d[pos+1] = nums[i];
+            d[l] = nums[i];
         }
         
     }
