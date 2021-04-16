@@ -82,7 +82,7 @@
       \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{专\hfill 业\hfill 名\hfill 称:}} & { {}\raisebox{-3ex}[0pt]{\the\Cmajor}\hfill{}} & \\[3ex]
       \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{课\hfill 程\hfill 名\hfill 称:}} & {  {}\raisebox{-3ex}[0pt]{\the\Ccoursename}\hfill{}} & \\[3ex]
 	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill 一:}} & { {}\raisebox{-3ex}[0pt]{\the\Csupervisor}\hfill{}} & \\[3ex]
-	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill 二:}} & { {}\raisebox{-3ex}[0pt]{\the\CsupervisorAnother}\hfill{}} & \\[3ex]
+	  %\raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{指\hfill 导\hfill 教\hfill 师\hfill 二:}} & { {}\raisebox{-3ex}[0pt]{\the\CsupervisorAnother}\hfill{}} & \\[3ex]
 	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 学\hfill 号:}} & { {}\raisebox{-3ex}[0pt]{\the\CstudentNum}\hfill{}} & \\[3ex]
 	  \raisebox{-3ex}[0pt]{\makebox[3.5cm][s]{学\hfill 生\hfill 姓\hfill 名:}} & { {}\raisebox{-3ex}[0pt]{\@author}\hfill{}} & \\[3ex]
      \end{tabular}
