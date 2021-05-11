@@ -4,7 +4,7 @@
 		{
 			"type": "shell",
 			"label": "g++",
-			"command": "C:/MinGW/bin/g++.exe",
+			"command": "C:/Program Files/DevelopTools/MinGW/mingw64/bin/g++.exe",
 			"args": [
 				"-g",
 				"${file}",
