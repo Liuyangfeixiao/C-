@@ -4,9 +4,9 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceRoot}",
-                "C:\\MinGW\\lib\\gcc\\mingw32\\9.2.0\\include\\c++",
-                "C:/MinGW/lib/gcc/mingw32/9.2.0/include/*",
-                "C:\\MinGW\\include\\*"
+                "D:/DevelopTools/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/c++",
+                "D:/DevelopTools/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/*",
+                "D:/DevelopTools/mingw64/include/*"
             ],
             "defines": [
                 "_DEBUG",
@@ -14,15 +14,15 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.18362.0",
-            "compilerPath": "C:/MinGW/bin/g++.exe",
+            "compilerPath": "D:/DevelopTools/mingw64/bin/g++.exe",
             "cStandard": "c11",
             "cppStandard": "c++17",
             "intelliSenseMode": "gcc-x86",
             "browse": {
                 "path": [
                     "${workspaceRoot}",
-                     "C:/MinGW/lib/gcc/mingw32/9.2.0/include/*",
-		             "C:/MinGW/include/*"
+                    "D:/DevelopTools/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/include/*",
+                    "D:/DevelopTools/mingw64/include/*"
                    
                 ]
             }

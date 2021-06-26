@@ -1,2 +1,2 @@
-# C-
-存放C++项目
+# Leetcode 刷题
+存放刷的Leetcode题目
