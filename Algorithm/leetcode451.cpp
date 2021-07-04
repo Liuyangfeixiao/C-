@@ -25,9 +25,9 @@ public:
         }
         string ans;
         for (int i = maxfre; i >= 0; --i) {
-            ans += bucket[n];
+            ans += bucket[i];
         }
 
         return ans;
     }
-}
+};
