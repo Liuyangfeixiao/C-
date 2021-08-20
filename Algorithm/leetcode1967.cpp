@@ -26,9 +26,10 @@ public:
 
             return false;
         };
-
+        int ans = 0;
         for (auto& pattern: patterns) {
-            
+            ans += check(pattern, word);
         }
+        return ans;
     }
 };
